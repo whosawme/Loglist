@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>IDk</title>
+</head>
+<body>
+    <form method="POST">
+            {{ form.csrf_token }}
+    Enter Message: {{ form.message }} 
+    
+    Last Message:
+            {{ form.last_message}}
+    <br>
+            {{ form.submit }}
+    <br>
+    <br>
+
+    </form>
+
+    <input type="button" id="btnAdd" value="Add Text Field">
+    <br>
+    <p id="fooBar">Fields:</p>
+
+    <script>
+
+        function add(type) {
+            //Create an input type dynamically.   
+            var element = document.createElement("input");
+
+            //Assign different attributes to the element. 
+            element.type = type;
+            element.value = "???"; 
+            element.name = type; 
+
+            element.onclick = function() { 
+            console.log("clicked");
+            }
+
+    var foo = document.getElementById("fooBar");
+        //Append the element in page (in span).  
+        foo.appendChild(element);
+        }
+
+        document.getElementById("btnAdd").onclick = function() {
+        add("text");
+        };
+        </script>
+</body>
+
+</html>
